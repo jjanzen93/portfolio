@@ -6,8 +6,8 @@ import ProjectModal from './components/ProjectModal';
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeProject, setActiveProject] = useState({ title: '', gifSrc: '', mdPath: '' });
-  
   const [isCopied, setIsCopied] = useState(false);
+  const baseUrl = import.meta.env.BASE_URL;
 
   const handleCopyEmail = (e) => {
     e.preventDefault();
@@ -26,25 +26,25 @@ function App() {
       id: 1,
       title: 'Pinballistic',
       desc: 'A pinball roguelite set in an intergalactic energy crisis. Upgrade your board, buy unique and powerful balls, and collect as much power as you can.',
-      staticImg: '/assets/pinballistic_thumbnail.png',
-      gifSrc: '/assets/pinballistic.gif',
-      mdPath: '/markdown/pinballistic.md'
+      staticImg: `${baseUrl}assets/pinballistic_thumbnail.png`,
+      gifSrc: `${baseUrl}assets/pinballistic.gif`,
+      mdPath: `${baseUrl}markdown/pinballistic.md`
     },
     {
       id: 2,
       title: 'Mateynence',
-      desc: 'A fast-paced <i>WarioWare</i>-style collection of minigames performing routine maintenence tasks on a pirate ship. Seek your fortune, a high score, on the seven seas.',
-      staticImg: '/assets/mateynence_thumbnail.png',
-      gifSrc: '/assets/mateynence.gif',
-      mdPath: '/markdown/mateynence.md'
+      desc: 'A fast-paced <i>WarioWare</i>-style collection of minigames performing routine maintenence tasks on a pirate ship.',
+      staticImg: `${baseUrl}assets/mateynence_thumbnail.png`,
+      gifSrc: `${baseUrl}assets/mateynence.gif`,
+      mdPath: `${baseUrl}markdown/mateynence.md`
     },
     {
       id: 3,
       title: 'Infinite Worlds',
-      desc: 'Three infinite and interactive worlds with seed-based procedural generation. Play around with Conway\'s Game of Life, send ripples through a serene water world, or cut through the clouds in the sky.',
-      staticImg: '/assets/worlds_thumbnail.png',
-      gifSrc: '/assets/worlds.gif',
-      mdPath: '/markdown/worlds.md'
+      desc: 'Three infinite and interactive worlds with seed-based procedural generation.',
+      staticImg: `${baseUrl}assets/worlds_thumbnail.png`,
+      gifSrc: `${baseUrl}assets/worlds.gif`,
+      mdPath: `${baseUrl}markdown/worlds.md`
     }
   ];
 
@@ -99,7 +99,7 @@ function App() {
 
             <div className="right-content">
               <div className="portrait">
-                <img src="/assets/portrait.jpg" alt="Portrait of Jack" />
+                <img src={`${baseUrl}assets/portrait.jpg`} alt="Portrait of Jack" />
               </div>
             </div>
           </div>
@@ -124,10 +124,9 @@ function App() {
         <h2>Let's Connect</h2>
         <div className="contact-links">
           <a 
-            href="/assets/Jack_Janzen_Resume.pdf" 
+            href={`${baseUrl}assets/Jack_Janzen_Resume.pdf`} 
             className="contact-btn" 
-            target="_blank"
-            rel="noreferrer"
+            download="Jack_Janzen_Resume.pdf"
           >
             Resume
           </a>
