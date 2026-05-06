@@ -1,0 +1,482 @@
+/* --- Color Palette & Variables --- */
+:root {
+    --primary: #212529;
+    --secondary: #4a4e69;
+    --detail: #9a8c98;
+    --text: #f2e9e4;
+    --header-height: 70px;
+}
+
+/* --- Global Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Updated to Lato */
+    font-family: 'Lato', sans-serif; 
+    
+    color: var(--text);
+    background-color: var(--primary);
+    line-height: 1.6;
+    overflow-x: hidden; 
+}
+
+/* --- Custom Scrollbar --- */
+
+/* 1. Standard syntax (For Firefox) */
+html {
+    scrollbar-width: thin;
+    /* Thumb color, then Track color */
+    scrollbar-color: var(--secondary) var(--primary); 
+}
+
+/* 2. WebKit syntax (For Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 14px; /* Width of the vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary); /* Matches your dark background */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondary); /* The draggable part */
+    border-radius: 10px; /* Rounds the edges */
+    
+    /* This creates a clean "padding" effect around the thumb */
+    border: 3px solid var(--primary); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--detail); /* Highlights when hovered */
+}
+
+/* --- Header / Navigation --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--secondary); /* Set to secondary as requested */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.logo {
+    font-size: 1.8rem; 
+    font-weight: bold;
+    padding-left: 5%;
+    /* Added a slight text shadow to ensure contrast against the lighter secondary color */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
+}
+
+nav {
+    height: 100%;
+    display: flex;
+    padding-right: 2%;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    height: 100%;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+nav a:hover {
+    background-color: var(--detail);
+}
+
+/* --- Parallax Background Section (Hero + About) --- */
+.intro-wrapper {
+    position: relative;
+    width: 100%;
+    background-color: #000000;
+    background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
+    background-attachment: fixed; 
+}
+
+.intro-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(47, 62, 70, 0.055); 
+    z-index: 1;
+}
+
+.intro-container {
+    position: relative;
+    z-index: 2;
+    width: 90%; 
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.intro-columns {
+    display: flex;
+}
+
+/* Left Side (60%) */
+.left-content {
+    width: 60%;
+    padding-right: 5%;
+}
+
+.hero-container {
+    min-height: 100vh; 
+    display: flex;
+    align-items: center; 
+}
+
+.hero-text {
+    font-size: 5rem; 
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.about-section {
+    /* Make the container as tall as the user's screen */
+    min-height: 0h; 
+    
+    /* These three lines are the magic that vertically centers the text inside */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    /* Remove any old margins so it sits perfectly flush */
+    margin: 0;
+    padding-top: 0vh;
+    padding-bottom: 0;
+    scroll-margin-top: var(--header-height); /* Offset for fixed header */
+}
+
+.about-section h2 {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+/* Buffer div to extend sticky context without visible content */
+.sticky-buffer {
+    min-height: 10vh;
+}
+
+/* Right Side (40% Sticky Portrait) */
+.right-content {
+    width: 40%;
+    position: relative; 
+}
+
+.portrait {
+    position: sticky;
+    top: calc(50vh - 275px); 
+    width: 100%;
+    max-width: 440px; 
+    aspect-ratio: 3/4;
+    background-color: var(--detail); /* Uses your detail color as image fallback */
+    border: 10px solid var(--secondary); 
+    box-shadow: 20px 20px 0px var(--detail);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    overflow: hidden;
+    margin-left: auto; 
+}
+
+.portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Projects Section --- */
+.projects-section {
+    background-color: var(--primary);
+    padding: 100px 5%;
+    max-width: 1400px; 
+    margin: 0 auto;
+}
+
+.projects-section h2 {
+    font-size: 3rem;
+    color: var(--text);
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.project-row {
+    display: grid;
+    grid-template-columns: 350px 1fr auto; 
+    grid-template-rows: auto auto;
+    gap: 10px 40px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    border-left: 6px solid var(--detail);
+    border-radius: 4px;
+}
+
+.project-gif {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    background-color: var(--detail); /* Uses detail color as GIF fallback */
+    height: 200px; 
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+}
+
+/* Keeps the images perfectly sized within the box */
+.project-gif img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 4px;
+}
+
+/* 1. Hide the GIF by default */
+.project-gif .hover-gif {
+    display: none;
+}
+
+/* 2. When the user hovers over the ROW, hide the static image */
+.project-row:hover .project-gif .static-img {
+    display: none;
+}
+
+/* 3. When the user hovers over the ROW, show the GIF */
+.project-row:hover .project-gif .hover-gif {
+    display: block;
+}
+
+/* Optional: Add a slight hover effect to the row itself so it feels interactive */
+.project-row {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.project-row:hover {
+    transform: translateX(10px); /* Nudges the row slightly to the right */
+    background: rgba(255, 255, 255, 0.06); /* Lightens the background slightly */
+}
+
+.project-name {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 2.2rem;
+    color: var(--text);
+    align-self: end;
+}
+
+.project-desc {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+.project-btn {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+    background-color: var(--secondary);
+    color: var(--text); /* Header text is white, matches requirement */
+    border: none;
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-radius: 4px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.project-btn:hover {
+    background-color: var(--detail);
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    background-color: #232e34; /* Slightly darker shade of your new primary color */
+    padding: 100px 5%;
+    text-align: center;
+    border-top: 2px solid var(--secondary);
+}
+
+.contact-section h2 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: var(--text);
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    background-color: var(--secondary);
+    color: var(--text);
+    text-decoration: none;
+    padding: 20px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-btn:hover {
+    background-color: var(--secondary);
+    transform: translateY(-5px);
+}
+
+/* --- Modal (Popup) Styles --- */
+
+/* Hide the extended descriptions on the main page */
+.extended-desc {
+    display: none;
+}
+
+/* The dark background overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 2000; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* ADDED: This forces a 75px gap between the popup and the edges of the screen */
+    padding: 75px; 
+    
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* When the .active class is added via JS, it fades in */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: var(--primary);
+    border: 4px solid var(--secondary);
+    border-radius: 8px;
+    
+    /* 1. Lock the box to the screen size again (leaving the 75px overlay padding) */
+    width: 100%;
+    height: 100%;
+    max-width: none; 
+    max-height: none; 
+    
+    /* 2. Turn on Flexbox to stack the Title, Text, and Button */
+    display: flex;
+    flex-direction: column;
+    
+    /* 3. Stop the main box from scrolling and restore uniform padding */
+    overflow: hidden; 
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    text-align: left;
+}
+
+/* Restored your original text sizing to keep line spacing exactly as it was */
+.modal-content h2 {
+    font-size: 2.5rem;
+    color: var(--text);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--detail);
+    padding-bottom: 10px;
+}
+
+.modal-content p, 
+.modal-content li {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+/* Target links inside the markdown body */
+#modal-body a {
+    color: var(--detail); /* Use your existing light-purple/pink detail color */
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+/* Add a hover effect for better interactivity */
+#modal-body a:hover {
+    color: #fff; /* Turn white when hovered */
+    text-decoration: none;
+}
+
+/* 4. This new wrapper absorbs all the empty space in the middle of the window */
+.modal-scroll-area {
+    flex-grow: 1; /* Tells the container to stretch and fill the void */
+    overflow-y: auto; /* ONLY this specific section will scroll if you ever have super long text */
+    padding-right: 20px; /* Keeps your text from brushing against the edge */
+}
+
+/* (Keep your existing .modal-content h2 and p rules here, their font sizes are fine!) */
+
+#modal-close {
+    /* 5. Strip out the absolute/fixed positioning so it behaves normally */
+    position: static; 
+    display: block;
+    
+    /* 6. Push it down and shove it into the bottom right corner */
+    margin-top: 20px;
+    margin-left: auto;
+    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.8); 
+    border: none;
+    cursor: pointer;
+}
+
+/* --- New Modal GIF Style --- */
+#modal-gif {
+    float: right;            /* Pushes the image to the top right */
+    width: 45%;              /* Takes up slightly less than half the modal width */
+    max-width: 400px;        /* Prevents it from getting too huge on big screens */
+    margin-left: 30px;       /* Pushes text away from its left edge */
+    margin-bottom: 20px;     /* Pushes text away from its bottom edge */
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Gives it a nice pop off the background */
+    border: 2px solid var(--detail); /* Subtle framing */
+}
