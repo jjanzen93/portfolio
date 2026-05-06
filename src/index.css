@@ -457,3 +457,56 @@ nav a:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     border: 2px solid var(--detail);
 }
+
+
+@media (max-width: 768px) {
+
+    .intro-columns {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-container {
+        justify-content: center;
+    }
+
+    .portrait {
+        margin: 0 auto;
+        max-width: 250px;
+    }
+
+    .project-row {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .project-gif {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    #modal-close {
+        width: 100%;
+        margin-right: 0;
+    }
+
+  
+    .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .contact-btn {
+        width: 80%; 
+        max-width: 300px;
+    }
+}
