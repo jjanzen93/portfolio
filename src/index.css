@@ -487,7 +487,7 @@ nav a:hover {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        margin-top: 100px;
+        padding-top: 80px;
     }
 
     .left-content, .right-content {
