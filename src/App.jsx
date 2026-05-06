@@ -60,7 +60,6 @@ function App() {
     }
   };
 
-  // FIXED: Removed the direct document.body mutations
   const openModal = (project) => {
     setActiveProject(project);
     setIsModalOpen(true);
@@ -137,7 +136,7 @@ function App() {
             className="contact-btn" 
             onClick={handleCopyEmail}
             style={{ 
-              position: 'relative', /* Allows us to float text inside it */
+              position: 'relative',
               backgroundColor: isCopied ? '#4CAF50' : undefined,
               borderColor: isCopied ? '#4CAF50' : undefined
             }}
@@ -147,7 +146,6 @@ function App() {
               Email Me
             </span>
             
-            {/* This text floats directly in the center when active */}
             {isCopied && (
               <span style={{ 
                 position: 'absolute', 

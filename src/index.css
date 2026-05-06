@@ -29,29 +29,27 @@ body {
 /* 1. Standard syntax (For Firefox) */
 html {
     scrollbar-width: thin;
-    /* Thumb color, then Track color */
     scrollbar-color: var(--secondary) var(--primary); 
 }
 
 /* 2. WebKit syntax (For Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
-    width: 14px; /* Width of the vertical scrollbar */
+    width: 14px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--primary); /* Matches your dark background */
+    background: var(--primary);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--secondary); /* The draggable part */
-    border-radius: 10px; /* Rounds the edges */
+    background-color: var(--secondary);
+    border-radius: 10px;
     
-    /* This creates a clean "padding" effect around the thumb */
     border: 3px solid var(--primary); 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--detail); /* Highlights when hovered */
+    background-color: var(--detail);
 }
 
 /* --- Header / Navigation --- */
@@ -61,7 +59,7 @@ header {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background-color: var(--secondary); /* Set to secondary as requested */
+    background-color: var(--secondary);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,7 +71,6 @@ header {
     font-size: 1.8rem; 
     font-weight: bold;
     padding-left: 5%;
-    /* Added a slight text shadow to ensure contrast against the lighter secondary color */
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
 }
 
@@ -130,7 +127,6 @@ nav a:hover {
     display: flex;
 }
 
-/* Left Side (60%) */
 .left-content {
     width: 60%;
     padding-right: 5%;
@@ -149,19 +145,16 @@ nav a:hover {
 }
 
 .about-section {
-    /* Make the container as tall as the user's screen */
     min-height: 0h; 
     
-    /* These three lines are the magic that vertically centers the text inside */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     
-    /* Remove any old margins so it sits perfectly flush */
     margin: 0;
     padding-top: 0vh;
     padding-bottom: 0;
-    scroll-margin-top: var(--header-height); /* Offset for fixed header */
+    scroll-margin-top: var(--header-height);
 }
 
 .about-section h2 {
@@ -180,7 +173,6 @@ nav a:hover {
     min-height: 10vh;
 }
 
-/* Right Side (40% Sticky Portrait) */
 .right-content {
     width: 40%;
     position: relative; 
@@ -192,7 +184,7 @@ nav a:hover {
     width: 100%;
     max-width: 440px; 
     aspect-ratio: 3/4;
-    background-color: var(--detail); /* Uses your detail color as image fallback */
+    background-color: var(--detail);
     border: 10px solid var(--secondary); 
     box-shadow: 20px 20px 0px var(--detail);
     border-radius: 4px;
@@ -245,7 +237,7 @@ nav a:hover {
 .project-gif {
     grid-column: 1;
     grid-row: 1 / span 2;
-    background-color: var(--detail); /* Uses detail color as GIF fallback */
+    background-color: var(--detail);
     height: 200px; 
     border-radius: 4px;
     display: flex;
@@ -254,7 +246,6 @@ nav a:hover {
     color: var(--text);
 }
 
-/* Keeps the images perfectly sized within the box */
 .project-gif img {
     width: 100%;
     height: 100%;
@@ -277,14 +268,13 @@ nav a:hover {
     display: block;
 }
 
-/* Optional: Add a slight hover effect to the row itself so it feels interactive */
 .project-row {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .project-row:hover {
-    transform: translateX(10px); /* Nudges the row slightly to the right */
-    background: rgba(255, 255, 255, 0.06); /* Lightens the background slightly */
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .project-name {
@@ -307,7 +297,7 @@ nav a:hover {
     grid-row: 1 / span 2;
     align-self: center;
     background-color: var(--secondary);
-    color: var(--text); /* Header text is white, matches requirement */
+    color: var(--text);
     border: none;
     padding: 20px 40px;
     font-size: 1.2rem;
@@ -324,7 +314,7 @@ nav a:hover {
 
 /* --- Contact Section --- */
 .contact-section {
-    background-color: #232e34; /* Slightly darker shade of your new primary color */
+    background-color: #232e34;
     padding: 100px 5%;
     text-align: center;
     border-top: 2px solid var(--secondary);
@@ -361,12 +351,10 @@ nav a:hover {
 
 /* --- Modal (Popup) Styles --- */
 
-/* Hide the extended descriptions on the main page */
 .extended-desc {
     display: none;
 }
 
-/* The dark background overlay */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -380,7 +368,6 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     
-    /* ADDED: This forces a 75px gap between the popup and the edges of the screen */
     padding: 75px; 
     
     opacity: 0;
@@ -388,7 +375,6 @@ nav a:hover {
     transition: opacity 0.3s ease;
 }
 
-/* When the .active class is added via JS, it fades in */
 .modal-overlay.active {
     opacity: 1;
     pointer-events: auto;
@@ -399,24 +385,20 @@ nav a:hover {
     border: 4px solid var(--secondary);
     border-radius: 8px;
     
-    /* 1. Lock the box to the screen size again (leaving the 75px overlay padding) */
     width: 100%;
     height: 100%;
     max-width: none; 
     max-height: none; 
     
-    /* 2. Turn on Flexbox to stack the Title, Text, and Button */
     display: flex;
     flex-direction: column;
     
-    /* 3. Stop the main box from scrolling and restore uniform padding */
     overflow: hidden; 
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     text-align: left;
 }
 
-/* Restored your original text sizing to keep line spacing exactly as it was */
 .modal-content h2 {
     font-size: 2.5rem;
     color: var(--text);
@@ -433,34 +415,29 @@ nav a:hover {
     color: #ccc;
 }
 
-/* Target links inside the markdown body */
 #modal-body a {
-    color: var(--detail); /* Use your existing light-purple/pink detail color */
+    color: var(--detail);
     text-decoration: underline;
     transition: color 0.2s ease;
 }
 
-/* Add a hover effect for better interactivity */
 #modal-body a:hover {
-    color: #fff; /* Turn white when hovered */
+    color: #fff; 
     text-decoration: none;
 }
 
-/* 4. This new wrapper absorbs all the empty space in the middle of the window */
+
 .modal-scroll-area {
-    flex-grow: 1; /* Tells the container to stretch and fill the void */
-    overflow-y: auto; /* ONLY this specific section will scroll if you ever have super long text */
-    padding-right: 20px; /* Keeps your text from brushing against the edge */
+    flex-grow: 1; 
+    overflow-y: auto; 
+    padding-right: 20px; 
 }
 
-/* (Keep your existing .modal-content h2 and p rules here, their font sizes are fine!) */
 
 #modal-close {
-    /* 5. Strip out the absolute/fixed positioning so it behaves normally */
     position: static; 
     display: block;
     
-    /* 6. Push it down and shove it into the bottom right corner */
     margin-top: 20px;
     margin-left: auto;
     
@@ -469,14 +446,14 @@ nav a:hover {
     cursor: pointer;
 }
 
-/* --- New Modal GIF Style --- */
+
 #modal-gif {
-    float: right;            /* Pushes the image to the top right */
-    width: 45%;              /* Takes up slightly less than half the modal width */
-    max-width: 400px;        /* Prevents it from getting too huge on big screens */
-    margin-left: 30px;       /* Pushes text away from its left edge */
-    margin-bottom: 20px;     /* Pushes text away from its bottom edge */
+    float: right;            
+    width: 45%;              
+    max-width: 400px;        
+    margin-left: 30px;       
+    margin-bottom: 20px;     
     border-radius: 6px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Gives it a nice pop off the background */
-    border: 2px solid var(--detail); /* Subtle framing */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 2px solid var(--detail);
 }
