@@ -460,44 +460,121 @@ nav a:hover {
 
 
 @media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100vw;
+    }
+
+    header {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        padding: 5px;
+    }
 
     .intro-columns {
-        flex-direction: column-reverse;
-        text-align: center;
-        gap: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .left-content, .right-content {
+        display: contents;
     }
 
     .hero-container {
-        justify-content: center;
+        width: 60%;
+        min-height: auto;
+    }
+
+    .hero-text {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
     }
 
     .portrait {
-        margin: 0 auto;
-        max-width: 250px;
+        position: static;
+        width: 35%;
+        margin: 0;
+        top: auto;
+    }
+
+    .about-section {
+        width: 100%;
+        order: 3;
+        margin-top: 20px;
+    }
+
+    .about-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-section p {
+        font-size: 0.95rem;
+    }
+
+    .project-list {
+        padding: 0 10px;
     }
 
     .project-row {
+        display: flex;
         flex-direction: column;
-        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
         padding: 20px;
     }
 
     .project-gif {
         width: 100%;
-        margin-bottom: 20px;
+        margin: 0 0 15px 0;
     }
 
+    .project-name {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+    }
+
+    .project-desc {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+    }
+
+    .project-btn {
+        width: 100%;
+        margin-top: auto;
+    }
+
+    .modal-overlay {
+        padding: 10px;
+    }
 
     .modal-content {
         padding: 20px;
     }
 
-    #modal-close {
-        width: 100%;
-        margin-right: 0;
+    .modal-content h2 {
+        font-size: 1.5rem;
     }
 
-  
+    .modal-content p, .modal-content li {
+        font-size: 1rem;
+    }
+
     .contact-links {
         display: flex;
         flex-direction: column;
@@ -506,7 +583,7 @@ nav a:hover {
     }
 
     .contact-btn {
-        width: 80%; 
+        width: 100%;
         max-width: 300px;
     }
 }
