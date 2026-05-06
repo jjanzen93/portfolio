@@ -126,7 +126,8 @@ function App() {
           <a 
             href={`${baseUrl}assets/Jack_Janzen_Resume.pdf`} 
             className="contact-btn" 
-            download="Jack_Janzen_Resume.pdf"
+            target="_blank" 
+            rel="noreferrer" 
           >
             Resume
           </a>
@@ -158,7 +159,7 @@ function App() {
           </a>
 
           <a 
-            href="https://www.linkedin.com/in/jack-janzen-629b312b1" 
+            href="https://www.linkedin.com/in/jack-janzen-13915b1b2/" 
             target="_blank" 
             rel="noreferrer" 
             className="contact-btn"
